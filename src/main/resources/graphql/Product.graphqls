@@ -1,0 +1,22 @@
+scalar Long
+
+type Query {
+    getProduct(id: ID): ProductDto
+}
+
+type Mutation{
+    saveProduct(dto: InputProductDto): ProductDto
+}
+
+input InputProductDto {
+    name: String
+    description: String
+    price: Long
+}
+
+type ProductDto {
+    name: String
+    description: String
+    price: Long
+}
+
