@@ -1,7 +1,7 @@
 package org.inventorypro.service;
 
+import api.dto.ProductDto;
 import lombok.RequiredArgsConstructor;
-import org.inventorypro.dto.ProductDto;
 import org.inventorypro.exception.ProductException;
 import org.inventorypro.mapper.ProductMapper;
 import org.inventorypro.model.ProductModel;

@@ -1,9 +1,7 @@
 package org.inventorypro.mapper;
 
-import org.inventorypro.dto.LocationDto;
-import org.inventorypro.dto.ProductDto;
+import api.dto.LocationDto;
 import org.inventorypro.model.LocationModel;
-import org.inventorypro.model.ProductModel;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;

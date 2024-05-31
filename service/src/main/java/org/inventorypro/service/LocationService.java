@@ -1,13 +1,10 @@
 package org.inventorypro.service;
 
+import api.dto.LocationDto;
 import lombok.RequiredArgsConstructor;
-import org.inventorypro.dto.LocationDto;
-import org.inventorypro.dto.ProductDto;
 import org.inventorypro.exception.LocationException;
-import org.inventorypro.exception.ProductException;
 import org.inventorypro.mapper.LocationMapper;
 import org.inventorypro.model.LocationModel;
-import org.inventorypro.model.ProductModel;
 import org.inventorypro.repository.LocationRepository;
 import org.springframework.stereotype.Service;
 
