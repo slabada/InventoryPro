@@ -1,20 +1,20 @@
-package org.inventorypro.model;
+package org.inventorypro.dto;
 
-import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
-@Table(name = "location")
 @Getter
 @Setter
-public class LocationModel {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+public class LocationDto {
+    @NotBlank
+    @Size(max = 16)
     private String sector;
+    @NotBlank
+    @Size(max = 16)
     private String wardrobe;
+    @NotBlank
+    @Size(max = 16)
     private String shelf;
 }
