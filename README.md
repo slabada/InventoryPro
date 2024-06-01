@@ -3,6 +3,7 @@ InventoryPro — небольшой проект состоящий из тре�
 # Стек:
 - Java 17
 - Spring boot 3.3.0
+- Graphql
 - PostgreSQL
 - Maven
 - Liquibase
