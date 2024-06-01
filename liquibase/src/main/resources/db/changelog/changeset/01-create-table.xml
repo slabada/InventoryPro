@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="001-create-table-product" author="Egor_Chovokin">
+        <createTable tableName="product">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="price" type="numeric"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="002-create-table-location" author="Egor_Chovokin">
+        <createTable tableName="location">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="sector" type="VARCHAR(255)"/>
+            <column name="wardrobe" type="VARCHAR(255)"/>
+            <column name="shelf" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="003-create-table-inventory" author="Egor_Chovokin">
+        <createTable tableName="inventory">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="quantity" type="INTEGER"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="004-create-table-inventory_product" author="Egor_Chovokin">
+        <createTable tableName="inventory_product">
+            <column name="inventory_id" type="BIGINT"/>
+            <column name="product_id" type="BIGINT"/>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="inventory_product"
+                                 baseColumnNames="inventory_id"
+                                 constraintName="fk_inventory_product_inventory"
+                                 referencedTableName="inventory"
+                                 referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint baseTableName="inventory_product"
+                                 baseColumnNames="product_id"
+                                 constraintName="fk_inventory_product_product"
+                                 referencedTableName="product"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="005-create-table-inventory_location" author="Egor_Chovokin">
+        <createTable tableName="inventory_location">
+            <column name="inventory_id" type="BIGINT"/>
+            <column name="location_id" type="BIGINT"/>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="inventory_location"
+                                 baseColumnNames="inventory_id"
+                                 constraintName="fk_inventory_location_inventory"
+                                 referencedTableName="inventory"
+                                 referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint baseTableName="inventory_location"
+                                 baseColumnNames="location_id"
+                                 constraintName="fk_inventory_location_location"
+                                 referencedTableName="location"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+</databaseChangeLog>
