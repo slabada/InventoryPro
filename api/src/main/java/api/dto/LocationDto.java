@@ -8,6 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class LocationDto {
+    private long id;
     @NotBlank
     @Size(max = 16)
     private String sector;

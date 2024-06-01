@@ -37,8 +37,7 @@ public class LocationService {
     }
 
     public Long delete(Long id){
-        boolean exists = locationRepository.existsById(id);
-        if(!exists){
+        if(!locationRepository.existsById(id)){
             throw new LocationException("Продукт не найден");
         }
         locationRepository.deleteById(id);

@@ -1,0 +1,13 @@
+input InputInventoryDto {
+    id: ID
+    product: InputProductDto
+    location: InputLocationDto
+    quantity: Int
+}
+
+type InventoryDto {
+    id: ID
+    product: ProductDto
+    location: LocationDto
+    quantity: Int
+}

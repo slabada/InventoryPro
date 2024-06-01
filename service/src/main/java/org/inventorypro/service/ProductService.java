@@ -37,8 +37,7 @@ public class ProductService {
     }
 
     public Long delete(Long id){
-        boolean exists = productRepository.existsById(id);
-        if(!exists){
+        if(!productRepository.existsById(id)){
             throw new ProductException("Продукт не найден");
         }
         productRepository.deleteById(id);

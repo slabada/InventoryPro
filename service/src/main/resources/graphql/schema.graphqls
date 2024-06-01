@@ -1,0 +1,21 @@
+scalar Long
+
+type Query {
+    getInventory(id: ID!): InventoryDto
+    getProduct(id: ID!): ProductDto
+    getLocation(id: ID!): LocationDto
+}
+
+type Mutation {
+    saveInventory(dto: InputInventoryDto!): InventoryDto
+    updateInventory(id:ID!, dto: InputInventoryDto!): InventoryDto
+    deleteInventory(id: ID!): ID
+
+    saveProduct(dto: InputProductDto!): ProductDto
+    updateProduct(id:ID!, dto: InputProductDto!): ProductDto
+    deleteProduct(id: ID!): ID
+
+    saveLocation(dto: InputLocationDto!): LocationDto
+    updateLocation(id:ID!, dto: InputLocationDto!): LocationDto
+    deleteLocation(id: ID!): ID
+}

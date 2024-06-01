@@ -1,0 +1,14 @@
+input InputProductDto {
+    id: ID
+    name: String
+    description: String
+    price: Long
+}
+
+type ProductDto {
+    id: ID
+    name: String
+    description: String
+    price: Long
+}
+

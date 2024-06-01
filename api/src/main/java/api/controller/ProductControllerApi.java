@@ -9,11 +9,11 @@ import org.springframework.graphql.data.method.annotation.QueryMapping;
 
 public interface ProductControllerApi {
     @QueryMapping(name = "getProduct")
-    ProductDto get(@Argument @Min(1) Long id);
+    ProductDto get(@Argument("id") @Min(1) Long id);
     @MutationMapping(name = "saveProduct")
-    ProductDto save(@Argument @Valid ProductDto dto);
+    ProductDto save(@Argument("dto") @Valid ProductDto dto);
     @MutationMapping(name = "updateProduct")
-    ProductDto update(@Argument @Min(1) Long id, @Argument @Valid ProductDto dto);
+    ProductDto update(@Argument("id") @Min(1) Long id, @Argument("dto") @Valid ProductDto dto);
     @MutationMapping(name = "deleteProduct")
-    Long delete(@Argument @Min(1) Long id);
+    Long delete(@Argument("id") @Min(1) Long id);
 }

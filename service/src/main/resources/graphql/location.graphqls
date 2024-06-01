@@ -1,0 +1,13 @@
+input InputLocationDto {
+    id: ID
+    sector: String
+    wardrobe: String
+    shelf: String
+}
+
+type LocationDto {
+    id: ID
+    sector: String
+    wardrobe: String
+    shelf: String
+}

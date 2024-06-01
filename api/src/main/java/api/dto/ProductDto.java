@@ -11,6 +11,7 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 public class ProductDto {
+    private long id;
     @Size(max = 64)
     @NotBlank
     private String name;
