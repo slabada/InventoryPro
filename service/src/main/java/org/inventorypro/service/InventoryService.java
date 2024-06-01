@@ -57,7 +57,7 @@ public class InventoryService {
     }
 
     public Long delete(Long id){
-        if(inventoryRepository.existsById(id)){
+        if(!inventoryRepository.existsById(id)){
             throw new InventoryException("Инвентарь не найден");
         }
         inventoryRepository.deleteById(id);

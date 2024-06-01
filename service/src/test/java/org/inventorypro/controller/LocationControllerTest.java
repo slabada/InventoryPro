@@ -1,6 +1,6 @@
 package org.inventorypro.controller;
 
-import api.dto.ProductDto;
+import api.dto.LocationDto;
 import org.inventorypro.configuration.GraphqlConfiguration;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -11,15 +11,13 @@ import org.springframework.context.annotation.Import;
 import org.springframework.graphql.test.tester.GraphQlTester;
 import org.springframework.test.context.TestPropertySource;
 
-import java.math.BigDecimal;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 @TestPropertySource("/application-test.properties")
 @AutoConfigureGraphQlTester
 @Import(GraphqlConfiguration.class)
-class ProductControllerTest {
+class LocationControllerTest {
 
     @Autowired
     GraphQlTester graphQlTester;
@@ -28,20 +26,20 @@ class ProductControllerTest {
     @Order(0)
     void get() {
         String query = """
-                query getProduct {
-                   getProduct(id: 1) {
+                query getLocation {
+                   getLocation(id: 1) {
                         id
-                        name
-                        description
-                        price
+                        sector
+                        wardrobe
+                        shelf
                     }
                 }
                 """;
         graphQlTester.document(query)
                 .execute()
-                .path("getProduct")
-                .entity(ProductDto.class)
-                .isEqualTo(new ProductDto(1, "testName","testDescription", BigDecimal.valueOf(123)));
+                .path("getLocation")
+                .entity(LocationDto.class)
+                .isEqualTo(new LocationDto(1, "testSector", "testWardrobe", "testShelf"));
     }
 
     @Test
@@ -49,24 +47,24 @@ class ProductControllerTest {
     void save() {
         String query = """
                 mutation {
-                  saveProduct(dto:{
-                    name:"testName"
-                    description:"testDescription"
-                    price:123
+                  saveLocation(dto:{
+                    sector:"testSector"
+                    wardrobe:"testWardrobe"
+                    shelf:"testShelf"
                   }){
                     id
-                    name
-                    description
-                    price
+                    sector
+                    wardrobe
+                    shelf
                   }
                 }
                 """;
         var result = graphQlTester.document(query)
                 .execute()
-                .path("saveProduct")
-                .entity(ProductDto.class)
+                .path("saveLocation")
+                .entity(LocationDto.class)
                 .get();
-        assertEquals(result, new ProductDto(6, "testName","testDescription", BigDecimal.valueOf(123)));
+        assertEquals(result, new LocationDto(6, "testSector", "testWardrobe", "testShelf"));
     }
 
     @Test
@@ -74,24 +72,24 @@ class ProductControllerTest {
     void update() {
         String query = """
                 mutation {
-                  updateProduct(id:2 dto:{
-                    name:"testName"
-                    description:"testDescription"
-                    price:123
+                  updateLocation(id:2 dto:{
+                    sector:"testSector"
+                    wardrobe:"testWardrobe"
+                    shelf:"testShelf"
                   }){
                     id
-                    name
-                    description
-                    price
+                    sector
+                    wardrobe
+                    shelf
                   }
                 }
                 """;
         var result = graphQlTester.document(query)
                 .execute()
-                .path("updateProduct")
-                .entity(ProductDto.class)
+                .path("updateLocation")
+                .entity(LocationDto.class)
                 .get();
-        assertEquals(result, new ProductDto(2, "testName","testDescription", BigDecimal.valueOf(123)));
+        assertEquals(result, new LocationDto(2, "testSector", "testWardrobe", "testShelf"));
     }
 
     @Test
@@ -99,12 +97,12 @@ class ProductControllerTest {
     void delete() {
         String query = """
                 mutation {
-                  deleteProduct(id:3)
+                  deleteLocation(id:3)
                 }
                 """;
         var result = graphQlTester.document(query)
                 .execute()
-                .path("deleteProduct")
+                .path("deleteLocation")
                 .entity(Long.class)
                 .get();
         assertEquals(result, 3);

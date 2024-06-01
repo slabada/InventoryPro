@@ -30,7 +30,7 @@ public class LocationService {
 
     public LocationDto update(Long id, LocationDto locationDto){
         LocationModel location = locationRepository.findById(id)
-                .orElseThrow(() -> new LocationException("Продукт не найден"));
+                .orElseThrow(() -> new LocationException("Локация не найден"));
         LocationModel model = mapper.update(locationDto, location);
         locationRepository.save(model);
         return mapper.toDto(model);
@@ -38,7 +38,7 @@ public class LocationService {
 
     public Long delete(Long id){
         if(!locationRepository.existsById(id)){
-            throw new LocationException("Продукт не найден");
+            throw new LocationException("Локация не найден");
         }
         locationRepository.deleteById(id);
         return id;
