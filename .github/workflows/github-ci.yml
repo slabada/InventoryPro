@@ -17,6 +17,8 @@ jobs:
 
       - name: build
         run: mvn compile
+        with:
+          java-version: '17'
 
   test:
     runs-on: ubuntu-latest
@@ -27,3 +29,5 @@ jobs:
 
       - name: test
         run: mvn test
+        with:
+          java-version: '17'
