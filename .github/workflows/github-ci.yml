@@ -1,5 +1,7 @@
 name: github-ci
 
+
+
 on:
   push:
     branches:
@@ -10,6 +12,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: git clone
+        uses: actions/checkout@v1
+
       - name: build
         run: mvn compile
 
@@ -17,5 +22,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: git clone
+        uses: actions/checkout@v1
+
       - name: test
         run: mvn test
