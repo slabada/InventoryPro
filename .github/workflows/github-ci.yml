@@ -1,7 +1,5 @@
 name: github-ci
 
-
-
 on:
   push:
     branches:
@@ -20,9 +18,6 @@ jobs:
           distribution: 'temurin'
           architecture: x64
 
-      - name: version
-        run: mvn --version
-
       - name: build
         run: mvn compile
 
@@ -37,9 +32,6 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           architecture: x64
-
-      - name: version
-        run: mvn --version
 
       - name: test
         run: mvn test
