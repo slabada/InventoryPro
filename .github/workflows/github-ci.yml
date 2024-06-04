@@ -19,7 +19,7 @@ jobs:
           architecture: x64
 
       - name: build
-        run: mvn compile1
+        run: mvn compile
 
   test:
     runs-on: ubuntu-latest
@@ -36,4 +36,4 @@ jobs:
           architecture: x64
 
       - name: test
-        run: mvn test1
+        run: mvn test
