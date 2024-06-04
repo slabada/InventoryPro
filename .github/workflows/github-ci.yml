@@ -11,5 +11,4 @@ jobs:
 
     steps:
       - name: Print Hello World
-        run: |
-          echo "Hello World"
+        run: package -f pom.xml
