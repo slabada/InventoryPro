@@ -12,22 +12,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: version
+        uses: mvn --version
+
       - name: git clone
         uses: actions/checkout@v1
 
       - name: build
         run: mvn compile
-        with:
-          java-version: '17'
 
   test:
     runs-on: ubuntu-latest
 
     steps:
+      - name: version
+        uses: mvn --version
+
       - name: git clone
         uses: actions/checkout@v1
 
       - name: test
         run: mvn test
-        with:
-          java-version: '17'
