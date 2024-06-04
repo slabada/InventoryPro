@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: version
-        uses: mvn --version
+        run: mvn --version
 
       - name: git clone
         uses: actions/checkout@v1
@@ -26,7 +26,7 @@ jobs:
 
     steps:
       - name: version
-        uses: mvn --version
+        run: mvn --version
 
       - name: git clone
         uses: actions/checkout@v1
