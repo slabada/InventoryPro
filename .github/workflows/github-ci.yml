@@ -10,5 +10,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print Hello World
-        run: mvn package -f pom.xml
+      - name: build
+        run: mvn compile
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: test
+        run: mvn test
