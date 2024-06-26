@@ -10,3 +10,5 @@ InventoryPro — небольшой проект состоящий из тре�
 - Liquibase
 # Связи таблиц
 ![image](https://github.com/slabada/InventoryPro/assets/82341789/0ddfe8ac-f87e-43df-a92b-843f3ba0ca6c)
+
+
